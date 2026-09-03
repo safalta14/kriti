@@ -1,0 +1,500 @@
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Body Setup */
+body {
+  overflow: hidden;
+  background-color: #0f0e13;
+  background-image: linear-gradient(rgba(15, 14, 19, 0.75), rgba(15, 14, 19, 0.75)), url('https://via.placeholder.com/1920x1080'); 
+  background-size: cover;
+  background-position: center;
+  color: #f8f8f8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #e5c3a6;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #fff;
+}
+
+/* Fixed Navigation */
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background: rgba(15, 14, 19, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(229, 195, 166, 0.2);
+}
+
+.fixed-nav .logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: #e5c3a6;
+  font-weight: 700;
+}
+
+.fixed-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.fixed-nav ul li a {
+  text-decoration: none;
+  color: #d1d1d1;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.fixed-nav ul li a:hover {
+  color: #e5c3a6;
+}
+
+/* Horizontal Scroll Container */
+.horizontal-slider {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Fullscreen Slide Area */
+.slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 3% 20px;
+  position: relative;
+}
+
+.slide-content {
+  width: 100%;
+  max-width: 1500px;
+  text-align: center;
+}
+
+/* Glassmorphism Card Container */
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Slide 1: Main Profile Layout */
+.hero-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3.5rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2.5rem;
+  align-items: center;
+}
+
+.hero-image-wrapper {
+  width: 100%;
+  height: 530px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(229, 195, 166, 0.3);
+}
+
+.hero-profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+.sub-title {
+  color: #e5c3a6;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.hero-bio {
+  font-size: 1.1rem;
+  color: #dcdcdc;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a0a0a0;
+}
+
+.contact-val, .contact-val a {
+  font-size: 1.05rem;
+  color: #e5c3a6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.swipe-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 5%;
+  color: #e5c3a6;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Slide 2: Experience & Services Layout */
+.services-exp-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 2rem;
+  text-align: left;
+}
+
+.exp-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-badge {
+  background: rgba(229, 195, 166, 0.15);
+  color: #e5c3a6;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  width: fit-content;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.institution {
+  font-size: 1.2rem;
+  color: #e5c3a6;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.exp-card p {
+  color: #cccccc;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.services-card {
+  padding: 2.5rem;
+}
+
+.services-interactive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  border-color: #e5c3a6;
+}
+
+.s-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #e5c3a6;
+  display: block;
+}
+
+.service-box h4 {
+  font-size: 1.3rem;
+  margin: 0.3rem 0;
+}
+
+.service-box p {
+  font-size: 0.95rem;
+  color: #b0b0b0;
+}
+
+/* Slide 3: 5-Column Grid (Fits All 5 Bridal Photos On-Screen) */
+.bridal-5-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.glam-4-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.gallery-item {
+  width: 100%;
+  height: calc(100vh - 240px); /* Dynamic height calculation to maximize display size on any screen */
+  max-height: 580px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.img-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 8px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #f8f8f8;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Slide 5: Large Featured Before & After Showcase */
+/* =========================================================
+   Slide 5: Single Horizontal Row (3 Large Transformations)
+   ========================================================= */
+#slide-5 .slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.ba-3-row-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 large side-by-side columns */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.ba-card-horizontal {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.ba-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #e5c3a6;
+  display: block;
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.ba-split-view {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ba-img-wrapper {
+  position: relative;
+  height: calc(100vh - 320px); /* Maximizes vertical photo size */
+  max-height: 480px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ba-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ba-img-wrapper .tag {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #e5c3a6;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   A4 Landscape Print Optimization (PDF / Physical Print)
+   ========================================================= */
+@page {
+  size: A4 landscape; /* Sets print format to A4 Landscape */
+  margin: 1cm;
+}
+
+@media print {
+  body {
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+
+  /* Hide digital navigation elements */
+  .fixed-nav, .swipe-hint {
+    display: none !important;
+  }
+
+  .horizontal-slider {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Page breaks each slide into a dedicated A4 sheet */
+  .slide {
+    width: 100% !important;
+    height: 100vh !important;
+    page-break-after: always;
+    page-break-inside: avoid;
+    padding: 1cm 0 !important;
+    display: block !important;
+  }
+
+  .slide-content {
+    max-width: 100% !important;
+  }
+
+  /* High-contrast print background cards */
+  .glass-card, .service-box, .ba-card-horizontal {
+    background: #ffffff !important;
+    border: 1px solid #222222 !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+  }
+
+  h1, h2, h3, h4, .s-num, .contact-val, .ba-title, .sub-title {
+    color: #000000 !important;
+  }
+
+  /* Print image scaling for Slide 3 (Bridal 5-photo grid) */
+  .bridal-5-grid {
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 0.4cm !important;
+  }
+
+  .gallery-item {
+    height: 14cm !important;
+    border: 1px solid #333 !important;
+  }
+
+  /* Print image scaling for Slide 5 (Before/After 3-column row) */
+  .ba-3-row-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5cm !important;
+  }
+
+  .ba-img-wrapper {
+    height: 12cm !important;
+    max-height: none !important;
+  }
+
+  .ba-img-wrapper .tag {
+    background: #000 !important;
+    color: #fff !important;
+  }
+}
+
+
+
