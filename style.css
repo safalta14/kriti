@@ -111,6 +111,8 @@ h3 {
   align-items: center;
   padding: 80px 3% 20px;
   position: relative;
+  overflow-y: auto; /* add this line */
+
 }
 
 .slide-content {
@@ -496,5 +498,65 @@ h3 {
   }
 }
 
+@media (max-width: 768px) {
+  .fixed-nav {
+    padding: 0 4%;
+  }
+  .fixed-nav ul {
+    gap: 1rem;
+  }
+  .fixed-nav ul li a {
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+  }
+  .fixed-nav .logo {
+    font-size: 1.1rem;
+  }
+
+  .slide {
+    padding: 70px 4% 20px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .hero-image-wrapper {
+    height: 320px;
+  }
+
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.6rem; }
+
+  .services-exp-grid,
+  .services-interactive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bridal-5-grid,
+  .glam-4-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-item {
+    height: 220px;
+    max-height: none;
+  }
+
+  .ba-3-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ba-img-wrapper {
+    height: 180px;
+    max-height: none;
+  }
+
+  .swipe-hint {
+    font-size: 0.8rem;
+  }
+}
 
 
