@@ -105,6 +105,7 @@ h3 {
   flex: 0 0 100vw;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* add this line too */
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
@@ -112,7 +113,6 @@ h3 {
   padding: 80px 3% 20px;
   position: relative;
   overflow-y: auto; /* add this line */
-
 }
 
 .slide-content {
@@ -497,7 +497,6 @@ h3 {
     color: #fff !important;
   }
 }
-
 @media (max-width: 768px) {
   .fixed-nav {
     padding: 0 4%;
@@ -514,7 +513,7 @@ h3 {
   }
 
   .slide {
-    padding: 70px 4% 20px;
+    padding: 90px 4% 40px;
   }
 
   .hero-container {
@@ -558,5 +557,3 @@ h3 {
     font-size: 0.8rem;
   }
 }
-
-
