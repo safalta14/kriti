@@ -1,11 +1,13 @@
-    * {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 /* Base Body Setup */
-body {
+html, body {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: #0f0e13;
   background-image: linear-gradient(rgba(15, 14, 19, 0.75), rgba(15, 14, 19, 0.75)), url('https://via.placeholder.com/1920x1080'); 
@@ -25,22 +27,22 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   line-height: 1.1;
   color: #fff;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
   color: #e5c3a6;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   letter-spacing: 3px;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #fff;
 }
 
@@ -57,6 +59,7 @@ h3 {
   padding: 0 5%;
   background: rgba(15, 14, 19, 0.85);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
   border-bottom: 1px solid rgba(229, 195, 166, 0.2);
 }
@@ -92,39 +95,43 @@ h3 {
 /* Horizontal Scroll Container */
 .horizontal-slider {
   display: flex;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Fullscreen Slide Area */
 .slide {
-  flex: 0 0 100vw;
-  width: 100vw;
+  flex: 0 0 100%;
+  width: 100%;
   height: 100vh;
-  height: 100dvh; /* add this line too */
+  height: 100dvh;
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px 3% 20px;
+  padding: 90px 3% 30px;
   position: relative;
-  overflow-y: auto; /* add this line */
+  overflow-y: auto;
 }
 
 .slide-content {
   width: 100%;
-  max-width: 1500px;
+  max-width: 1400px;
   text-align: center;
+  margin: auto;
 }
 
 /* Glassmorphism Card Container */
 .glass-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -133,8 +140,8 @@ h3 {
 /* Slide 1: Main Profile Layout */
 .hero-container {
   display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 3.5rem;
+  grid-template-columns: minmax(300px, 400px) 1fr;
+  gap: 2.5rem;
   max-width: 1200px;
   width: 100%;
   padding: 2.5rem;
@@ -143,7 +150,8 @@ h3 {
 
 .hero-image-wrapper {
   width: 100%;
-  height: 530px;
+  height: 100%;
+  max-height: 480px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
@@ -171,10 +179,10 @@ h3 {
 }
 
 .hero-bio {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: #dcdcdc;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
   font-weight: 300;
 }
 
@@ -183,7 +191,7 @@ h3 {
   flex-direction: column;
   gap: 0.8rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1.5rem;
+  padding-top: 1.2rem;
 }
 
 .contact-item {
@@ -199,7 +207,7 @@ h3 {
 }
 
 .contact-val, .contact-val a {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: #e5c3a6;
   text-decoration: none;
   font-weight: 500;
@@ -207,10 +215,10 @@ h3 {
 
 .swipe-hint {
   position: absolute;
-  bottom: 20px;
-  right: 5%;
+  bottom: 15px;
+  right: 4%;
   color: #e5c3a6;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: 'Cormorant Garamond', serif;
@@ -219,13 +227,13 @@ h3 {
 /* Slide 2: Experience & Services Layout */
 .services-exp-grid {
   display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 2rem;
+  grid-template-columns: minmax(280px, 350px) 1fr;
+  gap: 1.8rem;
   text-align: left;
 }
 
 .exp-card {
-  padding: 2.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,83 +246,83 @@ h3 {
   border-radius: 20px;
   font-size: 0.85rem;
   width: fit-content;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   letter-spacing: 1px;
 }
 
 .institution {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #e5c3a6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
 }
 
 .exp-card p {
   color: #cccccc;
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.6;
 }
 
 .services-card {
-  padding: 2.5rem;
+  padding: 2rem;
 }
 
 .services-interactive-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.2rem;
 }
 
 .service-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 10px;
   transition: transform 0.3s, border-color 0.3s;
 }
 
 .service-box:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   border-color: #e5c3a6;
 }
 
 .s-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #e5c3a6;
   display: block;
 }
 
 .service-box h4 {
-  font-size: 1.3rem;
-  margin: 0.3rem 0;
+  font-size: 1.2rem;
+  margin: 0.2rem 0;
 }
 
 .service-box p {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #b0b0b0;
 }
 
-/* Slide 3: 5-Column Grid (Fits All 5 Bridal Photos On-Screen) */
+/* Slide 3 & 4: Galleries */
 .bridal-5-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1.2rem;
+  gap: 1rem;
   width: 100%;
 }
 
 .glam-4-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.2rem;
   width: 100%;
 }
 
 .gallery-item {
   width: 100%;
-  height: calc(100vh - 240px); /* Dynamic height calculation to maximize display size on any screen */
-  max-height: 580px;
+  height: 52vh;
+  max-height: 520px;
   position: relative;
   border-radius: 12px;
   overflow: hidden;
@@ -338,50 +346,35 @@ h3 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 15px 8px;
+  padding: 12px 8px;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #f8f8f8;
   text-align: center;
   letter-spacing: 1px;
 }
 
-/* Slide 5: Large Featured Before & After Showcase */
-/* =========================================================
-   Slide 5: Single Horizontal Row (3 Large Transformations)
-   ========================================================= */
+/* Slide 5: Before & After */
 #slide-5 .slide-content {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
+  justify-content: center;
 }
 
 .ba-3-row-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 large side-by-side columns */
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
   width: 100%;
-  max-width: 1500px;
-  margin: 0 auto;
 }
 
 .ba-card-horizontal {
   background: rgba(255, 255, 255, 0.04);
   border-radius: 12px;
-  padding: 1.2rem;
+  padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.ba-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  color: #e5c3a6;
-  display: block;
-  margin-bottom: 0.8rem;
-  letter-spacing: 1px;
 }
 
 .ba-split-view {
@@ -392,8 +385,8 @@ h3 {
 
 .ba-img-wrapper {
   position: relative;
-  height: calc(100vh - 320px); /* Maximizes vertical photo size */
-  max-height: 480px;
+  height: 48vh;
+  max-height: 450px;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -406,128 +399,74 @@ h3 {
 
 .ba-img-wrapper .tag {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.85);
   color: #e5c3a6;
-  font-size: 0.75rem;
-  padding: 4px 12px;
+  font-size: 0.7rem;
+  padding: 3px 10px;
   border-radius: 4px;
   letter-spacing: 1.5px;
   font-weight: 600;
 }
 
-/* =========================================================
-   A4 Landscape Print Optimization (PDF / Physical Print)
-   ========================================================= */
-@page {
-  size: A4 landscape; /* Sets print format to A4 Landscape */
-  margin: 1cm;
-}
-
-@media print {
-  body {
-    overflow: visible !important;
-    background: #ffffff !important;
-    color: #111111 !important;
-  }
-
-  /* Hide digital navigation elements */
-  .fixed-nav, .swipe-hint {
-    display: none !important;
-  }
-
-  .horizontal-slider {
-    display: block !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-
-  /* Page breaks each slide into a dedicated A4 sheet */
-  .slide {
-    width: 100% !important;
-    height: 100vh !important;
-    page-break-after: always;
-    page-break-inside: avoid;
-    padding: 1cm 0 !important;
-    display: block !important;
-  }
-
-  .slide-content {
-    max-width: 100% !important;
-  }
-
-  /* High-contrast print background cards */
-  .glass-card, .service-box, .ba-card-horizontal {
-    background: #ffffff !important;
-    border: 1px solid #222222 !important;
-    box-shadow: none !important;
-    color: #000000 !important;
-  }
-
-  h1, h2, h3, h4, .s-num, .contact-val, .ba-title, .sub-title {
-    color: #000000 !important;
-  }
-
-  /* Print image scaling for Slide 3 (Bridal 5-photo grid) */
+/* Responsive Styles for Mobile & Tablets */
+@media (max-width: 1024px) {
   .bridal-5-grid {
-    grid-template-columns: repeat(5, 1fr) !important;
-    gap: 0.4cm !important;
+    grid-template-columns: repeat(3, 1fr);
   }
-
+  
   .gallery-item {
-    height: 14cm !important;
-    border: 1px solid #333 !important;
+    height: 380px;
   }
 
-  /* Print image scaling for Slide 5 (Before/After 3-column row) */
   .ba-3-row-grid {
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.5cm !important;
+    grid-template-columns: 1fr;
   }
 
   .ba-img-wrapper {
-    height: 12cm !important;
-    max-height: none !important;
-  }
-
-  .ba-img-wrapper .tag {
-    background: #000 !important;
-    color: #fff !important;
+    height: 300px;
   }
 }
+
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   .fixed-nav {
     padding: 0 4%;
+    height: 60px;
   }
+
   .fixed-nav ul {
-    gap: 1rem;
+    gap: 0.8rem;
   }
+
   .fixed-nav ul li a {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     letter-spacing: 0.5px;
   }
+
   .fixed-nav .logo {
     font-size: 1.1rem;
   }
 
   .slide {
-    padding: 90px 4% 40px;
+    padding: 75px 4% 30px;
+    align-items: flex-start;
   }
 
   .hero-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
 
   .hero-image-wrapper {
-    height: 320px;
+    height: 280px;
   }
-
-  h1 { font-size: 2.2rem; }
-  h2 { font-size: 1.6rem; }
 
   .services-exp-grid,
   .services-interactive-grid {
@@ -540,20 +479,14 @@ h3 {
   }
 
   .gallery-item {
-    height: 220px;
-    max-height: none;
-  }
-
-  .ba-3-row-grid {
-    grid-template-columns: 1fr;
+    height: 230px;
   }
 
   .ba-img-wrapper {
-    height: 180px;
-    max-height: none;
+    height: 200px;
   }
 
   .swipe-hint {
-    font-size: 0.8rem;
+    display: none;
   }
 }
